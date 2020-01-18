@@ -1,0 +1,18 @@
+{% load staticfiles %}
+{% include 'wronghub_app/base.html' %}
+  <title>WrongHub</title>
+{% block body %}
+  <h1>Ask a Question</h1>
+  <form enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    <input type="text" name="question" placeholder="Enter a Question">
+    <input type="submit" value="Get my Answer!">
+  </form>
+
+  {% if answer %}
+    <h3>Answer</h3>
+    <p>
+      {{answer}}
+    </p>
+  {% endif %}
+{% endblock %}
