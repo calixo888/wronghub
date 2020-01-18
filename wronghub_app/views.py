@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+import random
 
 answers = ["George Washington is the 1st president of the United States",
            "69",
@@ -23,7 +24,7 @@ def ask(request):
         question = request.GET.get("q")
         answer = question
         return render(request, "wronghub_app/ask.html", context={
-            "answer": answer[random.randint(0, len(answers))]
+            "answer": answers[random.randint(0, len(answers))]
         })
 
     if request.method == "POST":
