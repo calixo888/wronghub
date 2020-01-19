@@ -1,0 +1,38 @@
+{% load staticfiles %}
+{% include 'wronghub_app/base.html' %}
+  <title>WrongHub - Answer a Question</title>
+
+  <!-- JavaScript -->
+  <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+  <!-- Default theme -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+  <!-- Semantic UI theme -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+  <!-- Bootstrap theme -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+
+{% block body %}
+  <div class="jumbotron" style="height: 100vh;">
+    <div class="container text-center">
+      <h1 class="display-2">Answer a Question</h1>
+      <p class="lead">Question: {{question}}</p>
+      <form enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+        <div class="w-50 m-auto">
+          <input class="form-control mb-4" type="text" name="question" placeholder="Enter an Answer">
+          <input class="btn btn-primary" type="submit" value="Check it!">
+        </div>
+      </form>
+      {% if answered %}
+        <script>
+          var end_statements = ["why us so dumb?", "why u so stupid?", "get an education", "bruh moment", "you suck", "my dog is smarter than you", "try again, oh wait, you'll probably get it wrong again", "did you pass the 2nd grade?"];
+          var item = end_statements[Math.floor(Math.random()*end_statements.length)];
+          alertify.error("WRONG, " + item);
+        </script>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

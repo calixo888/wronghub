@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
-  <body>
+  <body style="overflow: hidden;">
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="/">WrongHub</a>
@@ -20,6 +20,9 @@
                   <li class="nav-item">
                       <a class="nav-link" href="/ask/">Ask a Question</a>
                   </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/answer/">Answer a Question</a>
+                  </li>
               </ul>
             </div>
         </div>
@@ -27,6 +30,8 @@
 
     {% block body %}
     {% endblock %}
+
+    <small style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);">&copy; Calix Huang and Akhil Iyer. All Right Reserved.</small>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
