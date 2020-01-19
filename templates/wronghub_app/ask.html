@@ -2,17 +2,23 @@
 {% include 'wronghub_app/base.html' %}
   <title>WrongHub</title>
 {% block body %}
-  <h1>Ask a Question</h1>
-  <form enctype="multipart/form-data" method="post">
-    {% csrf_token %}
-    <input type="text" name="question" placeholder="Enter a Question">
-    <input type="submit" value="Get my Answer!">
-  </form>
+  <div class="jumbotron">
+    <div class="container text-center">
+      <h1 class="display-2">Ask a Question</h1>
+      <form enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+        <div class="w-50 m-auto">
+          <input class="form-control mb-4" type="text" name="question" placeholder="Enter a Question">
+          <input class="btn btn-primary" type="submit" value="Get my Answer!">
+        </div>
+      </form>
 
-  {% if answer %}
-    <h3>Answer</h3>
-    <p>
-      {{answer}}
-    </p>
-  {% endif %}
+      {% if answer %}
+        <h3 class="display-4 mt-5">Answer</h3>
+        <p class="lead">
+          {{answer}}
+        </p>
+      {% endif %}
+    </div>
+  </div>
 {% endblock %}

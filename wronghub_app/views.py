@@ -20,7 +20,7 @@ def index(request):
 
 
 def ask(request):
-    if request.method == "GET":
+    if request.GET.get("q"):
         question = request.GET.get("q")
         answer = question
         return render(request, "wronghub_app/ask.html", context={
